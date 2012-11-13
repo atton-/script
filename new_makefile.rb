@@ -3,21 +3,22 @@
 
 require 'fileutils'
 
-lists = ['pdf']
+TemplatesDir = "#{File.dirname(__FILE__)}/makefile_templates"
+List = Dir.entries(TemplatesDir).select{|a|File.file?("#{TemplatesDir}/#{a}")}
+# . と .. 消せてない
 
 if ARGV.length != 1
-  puts 'please only Make file type'
+  puts 'please a Make file type'
   puts 'now support type is'
-  puts lists.map{|a|"'#{a}'"}.join(" ")
+  puts List.join(" ")
   exit
 end
 
-unless lists.include?(ARGV[0])
-  puts "not support #{ARGV[0]}"
+unless List.include?(ARGV[0])
+  puts "not support '#{ARGV[0]}'"
   puts 'now support type is'
-  puts lists.map{|a|"'#{a}'"}.join(" ")
+  puts List.join(" ")
   exit
 end
 
-FileUtils.copy_file("#{File.dirname(__FILE__)}/makefile_templates/#{ARGV[0]}",
-                    "#{Dir.pwd}/Makefile")
+FileUtils.copy_file("#{TemplatesDir}/#{ARGV[0]}", "#{Dir.pwd}/Makefile")
