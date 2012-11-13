@@ -1,0 +1,23 @@
+TARGET=<tex_file_name>
+
+.SUFFIXES: .tex .dvi .pdf
+
+.tex.dvi:
+	platex $< 
+	platex $< 
+	platex $< 
+
+.dvi.pdf:
+	dvipdfmx $<
+
+all : $(TARGET).pdf
+
+open : $(TARGET).pdf
+	open $(TARGET).pdf
+
+dvi: $(TARGET).dvi
+
+pdf: $(TARGET).pdf
+
+clean:
+	rm -f *.dvi *.aux *.log *.pdf *.ps *.gz *.bbl *.blg *.toc *~ *.core
