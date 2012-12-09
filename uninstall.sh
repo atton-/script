@@ -8,5 +8,5 @@ for file in $files
 do
     command="rm -f ${target_dir}/${file}"
     echo $command
-    #$command
+    $command
 done
