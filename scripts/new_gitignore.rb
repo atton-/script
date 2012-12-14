@@ -3,7 +3,7 @@
 
 require 'fileutils'
 
-TemplatesDir = "#{File.dirname(__FILE__)}/gitignore_templates"
+TemplatesDir = "#{File.dirname(__FILE__)}/templates/gitignore"
 List = Dir.entries(TemplatesDir).select{|a|File.file?("#{TemplatesDir}/#{a}")}
 
 if ARGV.length != 1
