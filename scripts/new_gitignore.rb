@@ -3,11 +3,11 @@
 
 require 'fileutils'
 
-TemplatesDir = "#{File.dirname(__FILE__)}/makefile_templates"
+TemplatesDir = "#{File.dirname(__FILE__)}/gitignore_templates"
 List = Dir.entries(TemplatesDir).select{|a|File.file?("#{TemplatesDir}/#{a}")}
 
 if ARGV.length != 1
-  puts 'please a Make file type'
+  puts 'please select a gitignroe type'
   puts 'now support type is'
   puts List.join(" ")
   exit
@@ -20,4 +20,4 @@ unless List.include?(ARGV[0])
   exit
 end
 
-FileUtils.copy_file("#{TemplatesDir}/#{ARGV[0]}", "#{Dir.pwd}/Makefile")
+FileUtils.copy_file("#{TemplatesDir}/#{ARGV[0]}", "#{Dir.pwd}/.gitignore")
