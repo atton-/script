@@ -7,7 +7,7 @@
 
 raise "sorry, check day of week method supported after 1.9.3 " if RUBY_VERSION <= "1.9.3"
 
-SeparatorDayOfWeek = :thursday    # separator day of week (symbol)
+SeparatorDayOfWeek = :tuesday    # separator day of week (symbol)
 class Time
   TimeOfADay = (24 * 60 * 60)
 
