@@ -3,9 +3,9 @@ TARGET=<tex_file_name>
 .SUFFIXES: .tex .dvi .pdf
 
 .tex.dvi:
-	platex $< 
-	platex $< 
-	platex $< 
+	platex $<
+	platex $<
+	platex $<
 
 .dvi.pdf:
 	dvipdfmx $<
