@@ -1,6 +1,8 @@
-TARGET=<tex_file_name>
+# target name
+TARGET=<tex_file_name_without_extension>
 
-.SUFFIXES: .tex .dvi .pdf
+# suffix rules
+.SUFFIXES: .pdf .dvi .tex
 
 .tex.dvi:
 	platex $<
@@ -10,14 +12,17 @@ TARGET=<tex_file_name>
 .dvi.pdf:
 	dvipdfmx $<
 
+# dependencies
+$(TARGET).pdf : $(TARGET).dvi
+$(TARGET).dvi : $(wildcard **/*.tex)
+
+# commands
+.PHONY : all open clean
+
 all : $(TARGET).pdf
 
 open : $(TARGET).pdf
 	open $(TARGET).pdf
-
-dvi: $(TARGET).dvi
-
-pdf: $(TARGET).pdf
 
 clean:
 	rm -f *.dvi *.aux *.log *.pdf *.ps *.gz *.bbl *.blg *.toc *~ *.core
