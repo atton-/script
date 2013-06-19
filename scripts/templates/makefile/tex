@@ -5,7 +5,7 @@ TARGET=<tex_file_name_without_extension>
 $(TARGET).pdf : $(TARGET).dvi
 	dvipdfmx $<
 
-$(TARGET).dvi : $(wildcard **/*.tex)
+$(TARGET).dvi : $(wildcard **/*.tex) $(TARGET).tex
 	platex $(TARGET).tex
 	platex $(TARGET).tex
 	platex $(TARGET).tex
