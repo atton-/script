@@ -43,7 +43,7 @@ function vnc_server() {
         exit
     fi
 
-    echo "sorry, server command is unimplemented."
+    java -jar ${tree_vnc_abs_path} -p
 }
 
 function usage() {
