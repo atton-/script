@@ -46,6 +46,17 @@ function vnc_server() {
     java -jar ${tree_vnc_abs_path} -p
 }
 
+function open_vnc()
+{
+    if [ ! -e ${tree_vnc_abs_path} ]; then
+        echo "TreeVNC not found."
+        echo "Please install TreeVNC"
+        exit
+    fi
+
+    open ${tree_vnc_abs_path}
+}
+
 function usage() {
     echo "This script is wrapper for TreeVNC."
     echo "--- commands list ---"
@@ -53,6 +64,7 @@ function usage() {
     echo "\tuninstall : uninstall TreeVNC in ${install_prefix}"
     echo "\tupdate    : update TreeVNC"
     echo "\tserver    : launch TreeVNC on server mode"
+    echo "\topen      : open TreeVNC on 'open' command"
 }
 
 
@@ -80,11 +92,12 @@ case "$command" in
         vnc_server
         ;;
 
+    "open")
+        open_vnc
+        ;;
+
     *)
         echo "'$command' is invalid command. Please see it."
         echo
         usage
 esac
-
-
-
