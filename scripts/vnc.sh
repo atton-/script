@@ -2,8 +2,8 @@
 
 # global variables
 install_prefix="/usr/local/bin"
-tree_vnc_url="http://www.cr.ie.u-ryukyu.ac.jp/software/TreeVNCViewer2.jar"
-tree_vnc_command_name="TreeVNCViewer2.jar"
+tree_vnc_url="http://www.cr.ie.u-ryukyu.ac.jp/software/TreeVNC.jar"
+tree_vnc_command_name="TreeVNC.jar"
 tree_vnc_abs_path="${install_prefix}/${tree_vnc_command_name}"
 
 
