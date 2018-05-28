@@ -17,7 +17,7 @@ if !(which slideshow >& /dev/null) then
     exit
 fi
 
-slideshow build $src_filename -o /tmp/tmp_slide -t cr
+slideshow build $src_filename -o /tmp/tmp_slide -t s6cr
 
 if [[  $(uname) == Darwin ]]; then
     open $slide_path
